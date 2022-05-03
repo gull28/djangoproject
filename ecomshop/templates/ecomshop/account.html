@@ -1,0 +1,23 @@
+{% extends "ecomshop/base.html" %}
+
+{% block title %}Account PAGE{% endblock %}
+
+
+{% block content %}
+    <h1>This is the account page</h1>
+<br>
+<br>
+    <ul class="list-group">
+      <li class="list-group-item">Username: {{user.username}}</li>
+      <li class="list-group-item">E-mail: {{user.email}}</li>
+      <li class="list-group-item">Created {{user.date_joined}}</li>
+      {% if user.is_superuser == True %}
+        <li class="list-group-item">Status: <span style="color: #0e8000">Administrator</span></li>
+      {% else %}
+        <li class="list-group-item">Status:
+            <span style="color: #b62405">Normal User</span></li>
+      {% endif %}
+
+
+    </ul>
+{% endblock %}

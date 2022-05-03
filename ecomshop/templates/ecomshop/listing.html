@@ -1,0 +1,36 @@
+{% extends "ecomshop/base.html" %}
+{% block title %}{{ls.name}}{% endblock %}
+
+{% block content %}
+    <h1>{{ls.name}}</h1>
+<br>
+<form method="post" action="#">
+    {% csrf_token %}
+    {% for item in ls.item_set.all %}
+            <div class="input-group mb3" style="padding-bottom:10px">
+                <div class="input-group-prepend">
+                    <div class="input-group-text">
+                        {% if item.complete == 0 %}
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="clicked" id="flexCheckChecked", name="c{{item.id}}">{{item.text}} - NOT COMPLETED
+                            </div>
+                        {% else %}
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="clicked" id="flexCheckChecked1", name="c{{item.id}}" checked>{{item.text}} - COMPLETED
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+    {% endfor %}
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <button type="submit", name="additem", value="additem", class="btn btn-success">ADD</button>
+        </div>
+        <div></div>
+        <input type="text", name="new" style="margin-left:10px">
+    </div>
+    <button type="submit", name="save", value="save", class="btn btn-success">SAVE</button>
+
+</form>
+{% endblock %}

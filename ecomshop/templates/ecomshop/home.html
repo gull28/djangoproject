@@ -1,0 +1,24 @@
+{% extends "ecomshop/base.html" %}
+
+{% block title %}Home PAGE{% endblock %}
+
+{% block content %}
+    <h3 style="margin-top: 15px">This is the home page</h3>
+
+    <div class="mb-3">
+      <label for="exampleFormControlInput1" class="form-label">Email address</label>
+      <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+    </div>
+    <div class="mb-3">
+      <label for="exampleFormControlTextarea1" class="form-label">Text</label>
+      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+    </div>
+    {% if user.is_authenticated %}
+        <p>Welcome, {{user.username}}, you are logged in</p>
+        <p>You can log out <a href="/logout">here</a></p>
+    {% else %}
+        <p>You are not logged in, log in <a href="/login">here</a></p>
+    {% endif %}
+    
+
+{% endblock %}

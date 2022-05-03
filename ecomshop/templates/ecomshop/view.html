@@ -1,0 +1,10 @@
+{% extends "ecomshop/base.html" %}
+
+{% block title %}View PAGE{% endblock %}
+
+{% block content %}
+<p>View</p>
+    {% for td in user.todolist.all %}
+        <p><a href="/{{td.id}}">{{td.name}}</a></p>
+    {% endfor %}
+{% endblock %}

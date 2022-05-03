@@ -1,0 +1,17 @@
+{% extends "ecomshop/base.html" %}
+
+{% block title %}Login PAGE{% endblock %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <form method="post" class="form-group">
+        {% csrf_token %}
+        {{form|crispy}}
+        <br>
+        <p>Don't have an account? Register <a href="/register">here</a></p>
+        <p>Nav konta? Reģistrējies <a href="/register">šeit</a></p>
+        <button type="submit" class="btn btn-success">Login</button>
+    </form>
+{% endblock %}
+

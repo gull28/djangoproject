@@ -27,4 +27,8 @@ class Product(models.Model):
     image_url = models.CharField(max_length=255)
 
 
-
+class Staff(models.Model):
+    name = models.CharField(max_length=35)
+    speciality = models.CharField(max_length=50)
+    staff_image_url = models.CharField(max_length=255, default='hello')
+    age = models.IntegerField()

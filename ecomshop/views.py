@@ -4,7 +4,7 @@ from .models import ToDoList, Item
 from .models import User
 from .forms import CreateNewList
 from django.contrib.auth.decorators import login_required
-from .models import Product
+from .models import Product, Staff
 
 
 # Create your views here.
@@ -66,11 +66,12 @@ def account(response):
 
 def shop(response):
     products = Product.objects.all()
-    return render(response, "ecomshop/shop.html")
+    return render(response, "ecomshop/shop.html", {'products': products})
 
 
 def staff(response):
-    return render(response, "ecomshop/staff.html", {})
+    staff = Staff.objects.all()
+    return render(response, "ecomshop/staff.html", {'staff': staff})
 
 
 def contact(response):

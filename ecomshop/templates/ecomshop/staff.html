@@ -3,4 +3,18 @@
 
 {% block content %}
 
+<div class="row">
+    {% for staf in staff %}
+    <div class="col">
+        <div class="card" style="width: 20; height: 30;">
+            <img src="{{ staf.staff_image_url }}" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">{{ staf.name }}</h5>
+                <p class="card-text">{{ staf.speciality }}</p>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
 {% endblock %}

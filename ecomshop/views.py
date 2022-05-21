@@ -4,6 +4,7 @@ from .models import ToDoList, Item
 from .models import User
 from .forms import CreateNewList
 from django.contrib.auth.decorators import login_required
+from .models import Product
 
 
 # Create your views here.
@@ -61,3 +62,16 @@ def view(response):
 @login_required
 def account(response):
     return render(response, "ecomshop/account.html", {})
+
+
+def shop(response):
+    products = Product.objects.all()
+    return render(response, "ecomshop/shop.html")
+
+
+def staff(response):
+    return render(response, "ecomshop/staff.html", {})
+
+
+def contact(response):
+    return render(response, "ecomshop/contact.html", {})

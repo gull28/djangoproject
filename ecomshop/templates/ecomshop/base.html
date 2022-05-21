@@ -44,17 +44,21 @@
 </head>
 <body>
     <div class="sidebar">
-        <img src="{% static '/static/logotips.jpg' %}">
+        <img src="{% static 'logotips.jpg' %}">
         <a href="/">Home</a>
-        <a href="/view">View</a>
-        <a href="/create">Create</a>
         {% if user.is_authenticated %}
             <a href="/account">Account</a>
         {% else %}
             <a href="/login">Login</a>
             <a href="/register">Register</a>
-
         {% endif %}
+        <a href="/view">View</a>
+        <a href="/shop">Shop</a>
+        <a href="/create">Create</a>
+        <a href="/staff">Staff</a>
+        <a href="/contact">Contact</a>
+
+
     </div>
 
     <div id="content", name="content", class="main">
